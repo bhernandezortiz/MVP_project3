@@ -1,0 +1,28 @@
+{
+  "name": "mvp_project3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bhernandezortiz/MVP_project3.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bhernandezortiz/MVP_project3/issues"
+  },
+  "homepage": "https://github.com/bhernandezortiz/MVP_project3#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "nodemon": "^2.0.20",
+    "pg": "^8.9.0",
+    "postgres": "^3.3.3"
+  }
+}
