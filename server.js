@@ -19,6 +19,8 @@ app.route('/home')
         }
     })
 
+    app.use(express.static('./public'));
+
 //listener on port
 app.listen(port,() => {
     console.log(`Listening on Port: ${port}`)

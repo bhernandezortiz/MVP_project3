@@ -58,7 +58,7 @@
     border-color: white;
     background-color: gray;
     transition-duration: 0.4s;
-    border-radius: 10px
+    border-radius: 8px
   }
   .dirbutton:hover {
     background-color: #0759fe; /* Green */
