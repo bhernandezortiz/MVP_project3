@@ -1,10 +1,66 @@
-.topnav {
-    background-color: #333;
-    padding: 20px;
-    color: white;
+:root {
+    --jumbotron-padding-y: 3rem;
+  }
+  
+  .jumbotron {
+    padding-top: var(--jumbotron-padding-y);
+    padding-bottom: var(--jumbotron-padding-y);
+    margin-bottom: 0;
+    background-color: #fff;
+  }
+  @media (min-width: 768px) {
+    .jumbotron {
+      padding-top: calc(var(--jumbotron-padding-y) * 2);
+      padding-bottom: calc(var(--jumbotron-padding-y) * 2);
+    }
+  }
+  
+  .jumbotron p:last-child {
+    margin-bottom: 0;
+  }
+  
+  .jumbotron-heading {
+    font-weight: 300;
+  }
+  
+  .jumbotron .container {
+    max-width: 40rem;
+  }
+  
+  footer {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  
+  footer p {
+    margin-bottom: .25rem;
+  }
+  
+  .box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
+
+  .card{
+    border: 5px solid;
     display: flex;
-    justify-content: space-between;
-}
-.page {
-    background-color: brown;
-}
+    justify-content: center;
+    color: rgb(56, 53, 56);
+    padding: 10px;
+    width: 50%;
+    margin: auto;
+    
+  }
+  .distance{
+    text-align: right;
+    color: lightgray
+  }
+  .dirbutton{
+    color: white;
+    border: solid;
+    border-color: white;
+    background-color: gray;
+    transition-duration: 0.4s;
+    border-radius: 10px
+  }
+  .dirbutton:hover {
+    background-color: #0759fe; /* Green */
+    color: black;
+  }
