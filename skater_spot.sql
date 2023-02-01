@@ -2,7 +2,6 @@ DROP TABLE IF EXISTS skater_spots;
 CREATE TABLE skater_spots(
     id serial,
     location_name varchar (500) NOT NULL,
-    image_url varchar (100) NOT NULL,
     distance integer NOT NULL,
     google_maps varchar (500) NOT NULL,
     description varchar (1000)NOT NULL,
