@@ -1,7 +1,7 @@
 const container = $('#container')
 
 let loadSpots = async () => {
-    await fetch('http://localhost:8000/home')
+    await fetch('/home')
     .then ((response)=> response.json())
     .then ((data) => {
         data.forEach((element) => {

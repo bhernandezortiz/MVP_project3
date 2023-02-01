@@ -3,11 +3,11 @@ const app = express();
 const port = process.env.PORT || 8000;
 const client = require('./db')
 const dotenv = require('dotenv');
-const cors = require('cors')
+// const cors = require('cors')
 dotenv.config();
 
 app.use(express.json())
-app.use(cors())
+// app.use(cors())
 
 app.route('/home')
     .get(async (req, res) => {
