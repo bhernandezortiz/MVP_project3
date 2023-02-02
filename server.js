@@ -30,7 +30,19 @@ app.route('/home')
         }
     })
 
-app.use(express.static('./public'));
+app.route('/home/:id')
+    .delete (async(req, res) => {
+    const id = req.params.id
+        try{
+            const deleteSpot = await client.query(`DELETE FROM skater_spots WHERE id = ${id}`)
+             res.status(200).type('application/JSON').json(deleteSpot.rows)
+        }catch(err){
+            console.log(err)
+    }
+  })
+
+
+  app.use(express.static('./public'));
 
 app.listen(port,() => {
     console.log(`Listening on Port: ${port}`)

@@ -66,5 +66,46 @@
   }
 
   .postcontainer{
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    margin: auto;
+  }
+  #navbar-toggler{
+    font-family: 'Oswald', sans-serif;
+    color: white;
+    border: solid;
+    border-color: white;
+    background-color: gray;
+    transition-duration: 0.4s;
+    border-radius: 8px
+  }
+  #navbar-toggler:hover {
+    background-color: #0759fe; /* Green */
+    color: black;
+  }
+  #post-btn{
+    font-family: 'Oswald', sans-serif;
+    color: white;
+    border: solid;
+    border-color: white;
+    background-color: gray;
+    transition-duration: 0.4s;
+    border-radius: 8px
+  }
+  #post-btn:hover {
+    background-color: #0759fe; /* Green */
+    color: black;
+  }
+  .delete{
+    color: white;
+    border: solid;
+    border-color: white;
+    background-color: gray;
+    transition-duration: 0.4s;
+    border-radius: 8px
+  }
+  .delete:hover {
+    background-color: black; /* Green */
     color: white;
   }
