@@ -9,7 +9,7 @@ const $container = $('#container')
 
 
 let loadSpots = async () => {
-    await fetch('/home')
+    await fetch('https://mvp-project-web.onrender.com/home')
     .then ((response)=> response.json())
     .then ((data) => {
         data.forEach((element) => {
@@ -28,7 +28,7 @@ let loadSpots = async () => {
               e.preventDefault();
               const {id} = this;
               console.log('test')
-               fetch(`/home/${id}`, {
+               fetch(`https://mvp-project-web.onrender.com/home/${id}`, {
                 method: 'DELETE'
               }).then((response)=> {
                 if(response.ok)  {
@@ -47,7 +47,7 @@ let loadSpots = async () => {
 $post.on('click', async(e) => {
     console.log($description.val())
     try{
-        const response = await fetch('/home',{
+        const response = await fetch('https://mvp-project-web.onrender.com/home',{
             method: 'POST',
             headers: {
                 'Content-Type':'application/json'
@@ -69,7 +69,7 @@ $post.on('click', async(e) => {
             <div class = description>${data.description}</div>
         </div>`)
 
-        newInfo.prependTo($('#container'))
+        newInfo.appendTo($('#container'))
         deleteListener()
         })
     }catch(error){
@@ -83,7 +83,7 @@ let deleteListener = function() {  $(`.delete`).on("click", async function(e) {
     e.preventDefault();
     const {id} = this;
     console.log(id)
-     fetch(`/home/${id}`, {
+     fetch(`https://mvp-project-web.onrender.com/home/${id}`, {
       method: 'DELETE'
     }).then((response)=> {
       if(response.ok)  {
