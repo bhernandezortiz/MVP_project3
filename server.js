@@ -10,12 +10,12 @@ app.use(express.json())
 app.use(cors())
 
 const pool = new Pool ({
-    // user:'bhernandezortiz',
-    // password:'',
-    // port: 5432,
-    // database: 'skaterspotsdb',
-    // host: 'localhost',
-    connectionString: process.env.DATABASE_URL
+    user:'bhernandezortiz',
+    password:'',
+    port: 5432,
+    database: 'skaterspotsdb',
+    host: 'localhost',
+    // connectionString: process.env.DATABASE_URL
 });
 
 pool.connect();
@@ -34,9 +34,9 @@ app.route('/home')
         try {
             console.log(req.body)
             const body = req.body
-            await pool.query(`INSERT INTO skater_spots (location_name, distance, description) VALUES ('${body.location_name}', '${body.distance}', '${body.description}')`);
+            const {rows} = await pool.query(`INSERT INTO skater_spots (location_name, distance, description) VALUES ('${body.location_name}', '${body.distance}', '${body.description}')`);
             const id = rows[0];
-            res.send({...req.body, id})
+            res.send({...body, id})
             res.status(200).type('application/json').json(body); 
         } catch (error) {
             res.status(500).type('text/plain').send(error.message)
