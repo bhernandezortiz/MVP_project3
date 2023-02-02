@@ -10,12 +10,12 @@ app.use(express.json())
 app.use(cors())
 
 const pool = new Pool ({
-    user:'bhernandezortiz',
-    password:'',
-    port: 5432,
-    database: 'skaterspotsdb',
-    host: 'localhost',
-    // connectionString: process.env.DATABASE_URL
+    // user:'bhernandezortiz',
+    // password:'',
+    // port: 5432,
+    // database: 'skaterspotsdb',
+    // host: 'localhost',
+    connectionString: process.env.DATABASE_URL
 });
 
 pool.connect();

@@ -9,7 +9,7 @@ const $container = $('#container')
 
 
 let loadSpots = async () => {
-    await fetch('http://localhost:8000/home')
+    await fetch('/home')
     .then ((response)=> response.json())
     .then ((data) => {
         data.forEach((element) => {
@@ -47,7 +47,7 @@ let loadSpots = async () => {
 $post.on('click', async(e) => {
     console.log($description.val())
     try{
-        const response = await fetch('http://localhost:8000/home',{
+        const response = await fetch('/home',{
             method: 'POST',
             headers: {
                 'Content-Type':'application/json'
@@ -98,7 +98,7 @@ let deleteListener = function() {  $(`.delete`).on("click", async function(e) {
     e.preventDefault();
     const {id} = this;
     console.log(id)
-     fetch(`http://localhost:8000/home/${id}`, {
+     fetch(`/home/${id}`, {
       method: 'DELETE'
     }).then((response)=> {
       if(response.ok)  {
