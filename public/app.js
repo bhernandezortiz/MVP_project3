@@ -9,7 +9,7 @@ const $container = $('#container')
 
 
 let loadSpots = async () => {
-    await fetch('https://mvp-project-web.onrender.com/home')
+    await fetch('/home')
     .then ((response)=> response.json())
     .then ((data) => {
         data.forEach((element) => {
@@ -28,7 +28,7 @@ let loadSpots = async () => {
               e.preventDefault();
               const {id} = this;
               console.log('test')
-               fetch(`https://mvp-project-web.onrender.com/home/${id}`, {
+               fetch(`/home/${id}`, {
                 method: 'DELETE'
               }).then((response)=> {
                 if(response.ok)  {
@@ -83,7 +83,7 @@ let deleteListener = function() {  $(`.delete`).on("click", async function(e) {
     e.preventDefault();
     const {id} = this;
     console.log(id)
-     fetch(`https://mvp-project-web.onrender.com/home/${id}`, {
+     fetch(`/home/${id}`, {
       method: 'DELETE'
     }).then((response)=> {
       if(response.ok)  {
