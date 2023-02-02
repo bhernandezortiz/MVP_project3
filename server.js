@@ -23,7 +23,7 @@ pool.connect();
 app.route('/home')
     .get(async (req, res) => {
         try {
-            const result = await client.query("SELECT * FROM skater_spots")
+            const result = await pool.query("SELECT * FROM skater_spots")
             res.status(200).type('application/JS0N').json(result.rows)
         } catch (error) {
             console.log(error.message)
@@ -34,7 +34,7 @@ app.route('/home')
         try {
             console.log(req.body)
             const body = req.body
-            await client.query(`INSERT INTO skater_spots (location_name, distance, description) VALUES ('${body.location_name}', '${body.distance}', '${body.description}')`);
+            await pool.query(`INSERT INTO skater_spots (location_name, distance, description) VALUES ('${body.location_name}', '${body.distance}', '${body.description}')`);
             res.status(200).type('application/json').json(body); 
         } catch (error) {
             res.status(500).type('text/plain').send(error.message)
@@ -45,7 +45,7 @@ app.route('/home/:id')
     .delete (async(req, res) => {
     const id = req.params.id
         try{
-            const deleteSpot = await client.query(`DELETE FROM skater_spots WHERE id = ${id}`)
+            const deleteSpot = await pool.query(`DELETE FROM skater_spots WHERE id = ${id}`)
              res.status(200).type('application/JSON').json(deleteSpot.rows)
         }catch(err){
             console.log(err)
