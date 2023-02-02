@@ -1,13 +1,24 @@
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 8000;
-const client = require('./db')
+const { Pool } = require("pg");
 const dotenv = require('dotenv');
 const cors = require('cors')
 dotenv.config();
 
 app.use(express.json())
 app.use(cors())
+
+const pool = new Pool ({
+    // user:'bhernandezortiz',
+    // password:'',
+    // port: 5432,
+    // database: 'skaterspotsdb',
+    // host: 'localhost',
+    connectionString: process.env.DATABASE_URL
+});
+
+pool.connect();
 
 app.route('/home')
     .get(async (req, res) => {
