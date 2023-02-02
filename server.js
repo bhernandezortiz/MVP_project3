@@ -35,6 +35,8 @@ app.route('/home')
             console.log(req.body)
             const body = req.body
             await pool.query(`INSERT INTO skater_spots (location_name, distance, description) VALUES ('${body.location_name}', '${body.distance}', '${body.description}')`);
+            const id = rows[0];
+            res.send({...req.body, id})
             res.status(200).type('application/json').json(body); 
         } catch (error) {
             res.status(500).type('text/plain').send(error.message)

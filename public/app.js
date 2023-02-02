@@ -67,7 +67,7 @@ $post.on('click', async(e) => {
             <div class = name><strong>${data.location_name}</strong></div>
             <div class = distance>${data.distance} mi </div>
             <div class = description>${data.description}</div>
-            <button class="delete" id="${element.id}">Delete</button>
+            <button class="delete" id="${data.id.id}">Delete</button>
         </div>`)
 
         $container.append(newInfo)
