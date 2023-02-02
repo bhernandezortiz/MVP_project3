@@ -47,7 +47,7 @@ let loadSpots = async () => {
 $post.on('click', async(e) => {
     console.log($description.val())
     try{
-        const response = await fetch('https://mvp-project-web.onrender.com/home',{
+        const response = await fetch('/home',{
             method: 'POST',
             headers: {
                 'Content-Type':'application/json'
@@ -67,10 +67,25 @@ $post.on('click', async(e) => {
             <div class = name><strong>${data.location_name}</strong></div>
             <div class = distance>${data.distance} mi </div>
             <div class = description>${data.description}</div>
+            <button class="delete" id="${element.id}">Delete</button>
         </div>`)
 
-        newInfo.appendTo($('#container'))
-        deleteListener()
+        $container.append(newInfo)
+        $(`.delete`).on("click", async function(e) {
+          e.preventDefault();
+          const {id} = this;
+          console.log('test')
+           fetch(`/home/${id}`, {
+            method: 'DELETE'
+          }).then((response)=> {
+            if(response.ok)  {
+              console.log('Data was deleted')
+            } else {
+              console.error('Failed to delete')
+            }
+          })
+          newInfo.remove();
+        })
         })
     }catch(error){
         console.log(error.message)
